@@ -7,7 +7,7 @@ client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 
 client.on("ready", async () => {
-  console.log(`Yo boii!! Moderation.V1 has been deployed!! Coded by 365 ɢᴀᴍɪɴɢ ɴ ᴍᴏʀᴇ_2.0#6766`);
+  console.log(`Yo boii!! Moderation.V1 has been deployed!!`);
   client.user
     .setActivity(`Discord Tricks`, { type: "LISTENING" })
     .catch(error => console.log(error));
@@ -20,7 +20,7 @@ client.on("message", async message => {
   if (!message.member)
     message.member = await message.guild.fetchMember(message);
 
-  if (message.content.match(new RegExp(`^<@!?${client.user.id}>`))) {
+  if (message.content.match(new RegExp(`^<@!?>${client.user.id}>`))) {
     return message.channel.send(`Bot Prefix : ${Prefix}`);
   }
 });
