@@ -1,3 +1,12 @@
+const express = require('express')
+const app = express();
+const port = 3000
+
+app.get('/', (req, res) => res.send('Your Bots Is Online!!!'))
+
+app.listen(port, () =>
+  console.log(`Your app is listening a http://localhost:${port}`)
+);
 const Discord = require("discord.js");
 const fs = require("fs");
 const client = new Discord.Client();
@@ -7,9 +16,9 @@ client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 
 client.on("ready", async () => {
-  console.log(`Yo boii!! Moderation.V1 has been deployed!!`);
+  console.log(`Yo boii!! Moderation.V1 has been deployed!! Coded by 365 ɢᴀᴍɪɴɢ ɴ ᴍᴏʀᴇ_2.0#6766`);
   client.user
-    .setActivity(`Discord Tricks`, { type: "LISTENING" })
+    .setActivity(`k!help to get help`, { type: "PLAYING" })
     .catch(error => console.log(error));
 });
 
@@ -20,7 +29,7 @@ client.on("message", async message => {
   if (!message.member)
     message.member = await message.guild.fetchMember(message);
 
-  if (message.content.match(new RegExp(`^<@!?>${client.user.id}>`))) {
+  if (message.content.match(new RegExp(`^<@!?${client.user.id}>`))) {
     return message.channel.send(`Bot Prefix : ${Prefix}`);
   }
 });
